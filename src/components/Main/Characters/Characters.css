@@ -1,0 +1,15 @@
+.cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-column-gap: 5px;
+    grid-row-gap: 40px;
+    flex: 1;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+}
+.utils {
+    max-width: 300px;
+}
