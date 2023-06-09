@@ -19,3 +19,7 @@
   -ms-user-select: none; /* Internet Explorer/Edge */
   user-select: none;
 }
+
+.paginate .selected {
+  background-color: #02b1c8;
+}
