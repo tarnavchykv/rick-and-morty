@@ -6,15 +6,31 @@ import Filters from "./Filters/Filters";
 import Pagination from "./Pagination/Pagination";
 import "./Characters.css";
 const Characters = () => {
-  const [info, setInfo] = useState();
+  const [searchText, setTextSearch] = useState("");
+  const [filters, setFilters] = useState({
+    status: null,
+    gender: null,
+    species: null,
+  });
+  const [pages, setPages] = useState();
   const [pageNumber, setPageNumber] = useState(1);
   const [characters, setCharacters] = useState([]);
+  const [errorMessage, setErrorMessage] = useState("");
   useEffect(() => {
-    loadCharacters(pageNumber).then((response) => {
-      setCharacters(response.data.results);
-      setInfo(response.data.info);
-    });
-  }, [pageNumber]);
+    loadCharacters(pageNumber, searchText, filters)
+      .then((response) => {
+        if (response.status === 200) {
+          setErrorMessage("");
+          setCharacters(response.data.results);
+          setPages(response.data.info.pages);
+        }
+      })
+      .catch((_) => {
+        setPages(1);
+        setCharacters([]);
+        setErrorMessage("No data found");
+      });
+  }, [pageNumber, searchText, filters]);
   const cards = characters.map((character, index) => {
     return <CharacterCard props={character} key={index} />;
   });
@@ -22,12 +38,14 @@ const Characters = () => {
     <>
       <div className="container">
         <div className="utils">
-          <Search />
-          <Filters />
+          <Search setTextSearch={setTextSearch} />
+          <Filters filters={filters} setFilters={setFilters} />
         </div>
-        {characters && <div className="cards">{cards}</div>}
+        {characters && !errorMessage && <div className="cards">{cards}</div>}
+        {errorMessage && <div className="error">{errorMessage}</div>}
       </div>
-      {info && <Pagination info={info} setPageNumber={setPageNumber}/>}
+
+      {pages && <Pagination pages={pages} setPageNumber={setPageNumber} />}
     </>
   );
 };

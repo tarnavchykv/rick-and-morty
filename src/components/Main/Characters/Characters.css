@@ -13,3 +13,8 @@
 .utils {
     max-width: 300px;
 }
+
+.error {
+    margin: auto;
+    font-size: 40px;
+}

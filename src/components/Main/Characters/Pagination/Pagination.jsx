@@ -1,14 +1,14 @@
 import ReactPaginate from "react-paginate";
 import "./Pagination.css";
 
-const Pagination = ({ info, setPageNumber }) => {
+const Pagination = ({ pages, setPageNumber }) => {
   const handlePageChange = (newPageNumber) => {
     setPageNumber(++newPageNumber.selected);
   };
   return (
     <ReactPaginate
       className="paginate"
-      pageCount={info.pages}
+      pageCount={pages}
       onPageChange={handlePageChange}
     />
   );

@@ -1,10 +1,18 @@
 import "./Search.css";
 
-const Search = () => {
+const Search = ({ setTextSearch }) => {
+  const handleChange = (data) => {
+    setTextSearch(data.target.value);
+  };
   return (
     <>
       <div className="search__container">
-        <input className="search__input" type="text" placeholder="Search" />
+        <input
+          onChange={handleChange}
+          className="search__input"
+          type="text"
+          placeholder="Search"
+        />
       </div>
     </>
   );

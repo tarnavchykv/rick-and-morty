@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import "./Filters.css";
 
 const FilterButton = ({ value, onClick, isActive }) => {
@@ -11,12 +11,7 @@ const FilterButton = ({ value, onClick, isActive }) => {
   );
 };
 
-const Filters = () => {
-  const [filters, setFilters] = useState({
-    status: null,
-    gender: null,
-    species: null,
-  });
+const Filters = ({ filters, setFilters }) => {
 
   const handleFilterChange = (filterType, value) => {
     setFilters((prevFilters) => ({
