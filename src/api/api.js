@@ -10,3 +10,15 @@ export const loadCharacters = async (pageNumber, searchText, filters) => {
   );
   return response;
 };
+
+export const loadEpisode = async (episodeNumber) => {
+  const response = await axios.get(
+    `https://rickandmortyapi.com/api/episode/${episodeNumber}`
+  );
+  return response;
+};
+
+export const loadSingleCharacter = async (link) => {
+  const response = await axios.get(link);
+  return response;
+};

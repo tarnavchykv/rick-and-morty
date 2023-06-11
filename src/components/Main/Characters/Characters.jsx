@@ -16,6 +16,7 @@ const Characters = () => {
   const [pageNumber, setPageNumber] = useState(1);
   const [characters, setCharacters] = useState([]);
   const [errorMessage, setErrorMessage] = useState("");
+  
   useEffect(() => {
     loadCharacters(pageNumber, searchText, filters)
       .then((response) => {
@@ -31,9 +32,11 @@ const Characters = () => {
         setErrorMessage("No data found");
       });
   }, [pageNumber, searchText, filters]);
+
   const cards = characters.map((character, index) => {
     return <CharacterCard props={character} key={index} />;
   });
+
   return (
     <>
       <div className="container">
