@@ -4,14 +4,14 @@ const CharacterCard = ({ props }) => {
   return (
     <div className="flip-card">
       <div className="flip-card-inner">
-        <div className="flip-card-front">
+        <div className={`flip-card-front ${props.status.toLowerCase()}`}>
           <img src={props.image} alt="Avatar" />
           <h2>{props.name}</h2>
           <span className={`ribbon ${props.status.toLowerCase()}`}>
             {props.status}
           </span>
         </div>
-        <div className={`flip-card-back ${props.status.toLowerCase()}`}>
+        <div className={`flip-card-back `}>
           <div className="content">
             <p>Name: {props.name}</p>
             <p>Last location: {props.location.name}</p>

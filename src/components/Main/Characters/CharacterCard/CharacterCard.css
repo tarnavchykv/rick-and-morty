@@ -37,6 +37,7 @@
 .flip-card-back {
   color: white;
   transform: rotateY(180deg);
+  background-color: #bbb;
 }
 .ribbon {
   width: 60px;
