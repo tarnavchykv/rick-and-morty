@@ -72,6 +72,7 @@ const Episodes = () => {
           currentElementNumber={episodeNumber}
           open={open}
           setOpen={setOpen}
+          buttonName={"Episode"}
         />
       </div>
       <div className="cards">{!isLoading && characterCards}</div>

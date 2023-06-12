@@ -22,3 +22,11 @@ export const loadSingleCharacter = async (link) => {
   const response = await axios.get(link);
   return response;
 };
+
+
+export const loadLocation = async (locationNumber) => {
+  const response = await axios.get(
+    `https://rickandmortyapi.com/api/location/${locationNumber}`
+  );
+  return response;
+}

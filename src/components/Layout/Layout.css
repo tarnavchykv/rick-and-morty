@@ -15,12 +15,12 @@ header {
 .navMenu a {
   padding: 10px;
   text-decoration: none;
-  font-size: 1.8em;
+  font-size: 2em;
   text-transform: uppercase;
   font-weight: 500;
   display: inline-block;
-  -webkit-transition: all 0.2s ease-in-out;
-  transition: all 0.2s ease-in-out;
+  -webkit-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
   margin: 0 10px;
   border: 1px solid transparent;
   color: black;

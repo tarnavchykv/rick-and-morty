@@ -1,6 +1,6 @@
 import "./Dropdown.css";
 
-const Dropdown = ({ elements, currentElementNumber, open, setOpen }) => {
+const Dropdown = ({ elements, currentElementNumber, open, setOpen, buttonName }) => {
   return (
     <>
       <div className="dropdown">
@@ -8,7 +8,7 @@ const Dropdown = ({ elements, currentElementNumber, open, setOpen }) => {
           onClick={() => {
             setOpen(!open);
           }}
-        >{`Episode - ${currentElementNumber}`}</button>
+        >{`${buttonName} - ${currentElementNumber}`}</button>
         {open ? <ul className="menu">{elements}</ul> : null}
       </div>
     </>

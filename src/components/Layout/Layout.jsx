@@ -1,5 +1,6 @@
 import { Outlet, Link, useLocation } from "react-router-dom";
 import logo from "../../assets/logo.png";
+import Footer from "../Footer/Footer";
 import "./Layout.css";
 const Layout = () => {
   const location = useLocation().pathname;
@@ -8,12 +9,25 @@ const Layout = () => {
       <header>
         <img src={logo} alt="logo" />
         <nav className="navMenu">
-          <Link to="/" className={location === "/" ? "active" : ""}>Characters</Link>
-          <Link to="/episodes" className={location === "/episodes" ? "active" : ""}>Episodes</Link>
-          <Link to="/locations" className={location === "/locations" ? "active" : ""}>Locations</Link>
+          <Link to="/" className={location === "/" ? "active" : ""}>
+            Characters
+          </Link>
+          <Link
+            to="/episodes"
+            className={location === "/episodes" ? "active" : ""}
+          >
+            Episodes
+          </Link>
+          <Link
+            to="/locations"
+            className={location === "/locations" ? "active" : ""}
+          >
+            Locations
+          </Link>
         </nav>
       </header>
       <Outlet />
+      <Footer />
     </>
   );
 };
